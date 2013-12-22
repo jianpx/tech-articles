@@ -18,9 +18,9 @@ CocoaPods 初阶
 CocoaPods 进阶
 =============
 * 原理：
-  * *主要文件*：请看下图![cocoapods组成]()
+  * *主要文件*：请看下图![cocoapods组成](https://github.com/jianpx/tech-articles/raw/master/images/CocoaPods%20components.png)
   * *pod install* 做了什么：请看下图：
-    ![pod install inner]()
+    ![pod install inner](https://github.com/jianpx/tech-articles/raw/master/images/PodInstall.png)
 
     整个流程下来，你的项目中就会多了<target_name>.xcworkspace 文件、Pods目录、Podfile.lock文件，Podfile（之前就有）。而且你打开xcworkspace文件会发现，在你项目的Framework里面多了一个`libPods.a`的文件，这个二进制包就是cocoapod产生的，里面整合了你所有第三方包的东西，你就能任意使用这些第三方包了。再多讲一点，你项目的Target里面的Build Phases的`Link Binary With Libraries` 也会包含了这个`libPods.a`文件。如果第三方包有bundle之类的资源，cocoapod会通过`"${SRCROOT}/Pods/Pods-resources.sh"`这个脚本将资源copy到对应位置。了解上述流程对下面的内容是有帮助的。
 

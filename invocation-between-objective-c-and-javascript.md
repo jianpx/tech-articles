@@ -79,6 +79,7 @@ Objective C的接口，那么在shouldStartLoadWithRequest的delegate方法里�
 由于我不想对url的格式分析是很多的if else 代码，而且希望这部分代码能重用。所以我参考了以前用过的某Web框架的url dispatch的机制优化。
 大概的思想就是我们定义url格式应该匹配到哪个cgi handler，大概是这样的：
 
+    //r'login' 就是正则表达式匹配请求的url的，后面的login对应的是cgi handler的login函数。
     url_config = [
          (r'login', 'login'),
          (r'user/set', 'update_user'),
